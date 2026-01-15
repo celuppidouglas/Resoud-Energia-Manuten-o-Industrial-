@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resoud Energia - Manutenção Industrial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4a4a4a 0%, #5a5a5a 100%);
+            color: #222;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #3a3a3a 0%, #4a4a4a 100%);
+            color: #e8e8e8;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #80d987;
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: #d4d4d4;
+            margin-bottom: 20px;
+        }
+
+        .location {
+            font-size: 14px;
+            color: #80d987;
+        }
+
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Card Styles */
+        .card {
+            background: #e0e0e0;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(128, 217, 135, 0.2);
+        }
+
+        .card h2 {
+            color: #3a3a3a;
+            font-size: 24px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-icon {
+            font-size: 28px;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .card li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .card li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #80d987;
+            font-weight: bold;
+        }
+
+        /* Brands Section */
+        .brands-section {
+            background: #e0e0e0;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .brands-section h2 {
+            color: #3a3a3a;
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .brand-item {
+            background: #d0d0d0;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            color: #3a3a3a;
+            border-left: 4px solid #80d987;
+            transition: background 0.3s ease;
+        }
+
+        .brand-item:hover {
+            background: #c0c0c0;
+        }
+
+        /* Structure Section */
+        .structure-section {
+            background: linear-gradient(135deg, #3a3a3a 0%, #4a4a4a 100%);
+            color: #e8e8e8;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .structure-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .structure-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .structure-info {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #d4d4d4;
+        }
+
+        .structure-highlight {
+            background: rgba(128, 217, 135, 0.2);
+            border-left: 4px solid #80d987;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #80d987;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #e0e0e0;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .contact-section h2 {
+            color: #3a3a3a;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-item {
+            padding: 20px;
+            background: #d0d0d0;
+            border-radius: 8px;
+            border-top: 3px solid #3a3a3a;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: #3a3a3a;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .contact-info {
+            color: #444;
+            word-break: break-all;
+        }
+
+        .contact-info a {
+            color: #3a3a3a;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #5a5a5a;
+        }
+
+        /* Data Section */
+        .data-section {
+            background: #e0e0e0;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .data-section h2 {
+            color: #3a3a3a;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .data-item {
+            background: #d0d0d0;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #80d987;
+        }
+
+        .data-label {
+            font-weight: 600;
+            color: #3a3a3a;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-value {
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #3a3a3a;
+            color: #d4d4d4;
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .structure-content {
+                grid-template-columns: 1fr;
+            }
+
+            .logo {
+                font-size: 36px;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">RESOUD <span>ENERGIA</span> ®</div>
+            <p class="tagline">Especialista em Manutenção Eletrônica, Elétrica e Automação Industrial</p>
+            <p class="location">📍 Trindade do Sul - RS</p>
+        </header>
+
+        <!-- About Section -->
+        <div class="content-grid">
+            <div class="card">
+                <h2><span class="card-icon">⚡</span> Nossa Missão</h2>
+                <p>Fornecer serviços rápidos e de qualidade em manutenção de equipamentos industriais, atendendo tanto manutenção preventiva quanto corretiva com excelência técnica.</p>
+            </div>
+
+            <div class="card">
+                <h2><span class="card-icon">🏭</span> Nossa Experiência</h2>
+                <p>Atendemos a toda a linha de equipamentos industriais com expertise em sistemas eletrônicos, elétricos e automação, contando com profissionais qualificados.</p>
+            </div>
+
+            <div class="card">
+                <h2><span class="card-icon">✓</span> Nossa Qualidade</h2>
+                <p>Estrutura completa com 265m² de infraestrutura e técnicos especializados, garantindo soluções eficientes e duráveis para seus equipamentos.</p>
+            </div>
+        </div>
+
+        <!-- Services - Eletrônica -->
+        <div class="card" style="margin-bottom: 30px;">
+            <h2><span class="card-icon">🔧</span> Serviços Eletrônicos & Automação</h2>
+            <ul style="columns: 2; gap: 20px;">
+                <li>Soft-Starters</li>
+                <li>Inversores de Frequência</li>
+                <li>IHMs (Interfaces Homem-Máquina)</li>
+                <li>CLPs (Controladores Lógicos Programáveis)</li>
+                <li>Controladores de Processos</li>
+                <li>Fontes de Alta Tensão</li>
+                <li>Drivers de Eixo Bystronic</li>
+                <li>Cortinas de Luz</li>
+                <li>Carregadores de Baterias</li>
+                <li>Estabilizadores e Nobreaks</li>
+                <li>Máquinas de Solda</li>
+                <li>Placas Diversas</li>
+            </ul>
+        </div>
+
+        <!-- Services - Elétrica -->
+        <div class="card" style="margin-bottom: 30px;">
+            <h2><span class="card-icon">⚙️</span> Serviços Elétricos</h2>
+            <ul>
+                <li>Projetos Elétricos</li>
+                <li>Laudos Técnicos</li>
+                <li>SPDA (Sistema de Proteção contra Descargas Atmosféricas)</li>
+                <li>Correção de Fator de Potência</li>
+                <li>Microgeração Distribuída</li>
+                <li>Adequação à NR12 (Norma de Segurança em Máquinas)</li>
+            </ul>
+        </div>
+
+        <!-- Brands Section -->
+        <div class="brands-section">
+            <h2>Marcas Atendidas</h2>
+            <div class="brands-grid">
+                <div class="brand-item">ABB</div>
+                <div class="brand-item">Allen-Bradley</div>
+                <div class="brand-item">Bystronic</div>
+                <div class="brand-item">Siemens</div>
+                <div class="brand-item">Sumitomo</div>
+                <div class="brand-item">SEW</div>
+                <div class="brand-item">Eurodrive</div>
+            </div>
+        </div>
+
+        <!-- Structure Section -->
+        <div class="structure-section">
+            <h2>Nossa Infraestrutura</h2>
+            <div class="structure-content">
+                <div class="structure-info">
+                    <p>Contamos com uma sede de <strong>265m²</strong> com infraestrutura completa e equipada para prestar serviços de qualidade aos nossos clientes.</p>
+                    <p style="margin-top: 20px;">Nossos profissionais possuem expertise técnica e estão preparados para resolver problemas complexos em equipamentos industriais de alto desempenho.</p>
+                </div>
+                <div class="structure-highlight">
+                    <div style="font-size: 48px; margin-bottom: 10px;">🏢</div>
+                    <div>Sede de 265m²</div>
+                    <div style="font-size: 14px; margin-top: 10px; color: #b0c4de;">Infraestrutura completa e moderna</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h2>Contato</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-label">📱 Resoud Energia (Geral)</div>
+                    <div class="contact-info"><a href="tel:+5554996668081">(54) 9 9666-8081</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">👤 Bruno Decesaro</div>
+                    <div class="contact-info"><a href="tel:+5549999104-5920">(49) 9 9910-45920</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">👤 Israel Decesaro</div>
+                    <div class="contact-info"><a href="tel:+5549999156-6912">(49) 9 9915-66912</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">👤 Douglas Celuppi</div>
+                    <div class="contact-info"><a href="tel:+5554999568446">(54) 9 9956-8446</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">✉️ Email</div>
+                    <div class="contact-info"><a href="mailto:contato.resoud@gmail.com">contato.resoud@gmail.com</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">🌐 Website</div>
+                    <div class="contact-info"><a href="https://www.resoud.com.br" target="_blank">www.resoud.com.br</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Section -->
+        <div class="data-section">
+            <h2>Dados Cadastrais</h2>
+            <div class="data-grid">
+                <div class="data-item">
+                    <div class="data-label">Razão Social</div>
+                    <div class="data-value">Resoud Comércio e Manutenção LTDA</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">CNPJ</div>
+                    <div class="data-value">35.823.557/0001-07</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">IE (Inscrição Estadual)</div>
+                    <div class="data-value">3240008744</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">Endereço</div>
+                    <div class="data-value">Avenida Amado Ribeiro, 68<br>Centro - 99615-000<br>Trindade do Sul - RS</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">Banco</div>
+                    <div class="data-value">Banco Inter - 077</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">Agência</div>
+                    <div class="data-value">0001</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">Conta Corrente</div>
+                    <div class="data-value">4794456-0</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">Chave PIX</div>
+                    <div class="data-value">35.823.557/0001-07</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p><strong>RESOUD ENERGIA ®</strong></p>
+            <p>Especialista em Manutenção Eletrônica, Elétrica e Automação Industrial</p>
+            <p style="margin-top: 15px; color: #80d987; font-size: 12px;">© 2026 Resoud Energia. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
